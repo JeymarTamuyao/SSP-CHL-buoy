@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chlorophyll Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+</head>
+<body>
+    <header>
+        <img src="photo/logo.png" alt="Logo" class="logo">
+        <h1>Chlorophyll Monitoring Dashboard</h1>
+    </header>
+    <main>
+        <div id="side-panel">
+            <h2>Longitude:</h2> <span id="longitude">N/A</span>
+            <h2>Latitude:</h2> <span id="latitude">N/A</span>
+            <h2>Chlorophyll:</h2> <span id="chlorophyll Fluorescence">N/A</span>
+        </div>
+        <div id="content">
+            <div id="chart-section">
+                <canvas id="chlorophyll-chart"></canvas>
+            </div>
+            <div id="map-section">
+                <div id="map"></div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

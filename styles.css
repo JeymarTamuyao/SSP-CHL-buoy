@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #51e4b8;
+}
+
+header {
+    background-color: #006A4E;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+header .logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+main {
+    display: flex;
+    height: calc(100vh - 70px); /* Subtract header height */
+}
+
+#side-panel {
+    width: 25%;
+    padding: 20px;
+    background-color: #26865e;
+    border-right: 2px solid #006A4E;
+    color: #b2f5ea;
+    overflow-y: auto;
+}
+
+#content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#chart-section {
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+#map-section {
+    flex: 1;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #006A4E;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #006A4E;
+}
+
+header .logo {
+    height: 80px; /* Adjust height */
+    width: auto;  /* Maintain aspect ratio */
+    margin-right: 15px;
+}
