@@ -1,13 +1,15 @@
-// Firebase configuration
+require('dotenv').config();
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDidL7ZVgmSs1s0r5wEZ68pl1pJ8iCGwbI",
-    authDomain: "chl-a-buoy.firebaseapp.com",
-    databaseURL: "https://chl-a-buoy-default-rtdb.firebaseio.com",
-    projectId: "chl-a-buoy",
-    storageBucket: "chl-a-buoy.firebasestorage.app",
-    messagingSenderId: "326811750526",
-    appId: "1:326811750526:web:3dae736e8adb91c0a1c82f",
-};
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
+
+}
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
@@ -44,7 +46,7 @@ const chart = new Chart(ctx, {
 
 // Google Sheets Update Function
 async function updateGoogleSheets(data) {
-    const url = "https://script.google.com/macros/s/AKfycbx39y6W8oUjvVQ0f3_4N8HN9tsi3IwlkewOOOUDRV97_eI-eiXhOMY2wHHY02y6GSwHmA/exec"; // Replace with your Google Apps Script URL
+    const url = process.env.GOOGLE_SCRIPT_URL;
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -66,7 +68,6 @@ buoyDataRef.orderByChild("timestamp").limitToLast(1).on("child_added", (snapshot
     document.getElementById('latitude').textContent = data.latitude;
     document.getElementById('longitude').textContent = data.longitude;
     document.getElementById('fluorescence').textContent = data.fluorescence;
-    document.getElementById('status').textContent = "Connected";
 
     // Update map
     L.marker([data.latitude, data.longitude]).addTo(map)
